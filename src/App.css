@@ -1,0 +1,108 @@
+body {
+  background-color: antiquewhite;
+}
+
+#ArticleList {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  gap: 20px;
+  grid-template-rows: auto;
+  flex-wrap: wrap;
+}
+
+.ArticleCard {
+  border: solid 1px Black;
+  border-radius: 12px;
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: navajowhite;
+  display: grid;
+  justify-content: left;
+  gap: 0px;
+  height: 400px;
+  aspect-ratio: 1/1;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto;
+  grid-template-areas:
+    "title title title title"
+    "img img img img"
+    "topcomment topcomment commentcount commentcount "
+    "topic author creationinfo votecount";
+}
+
+.ArticleCard:hover {
+  opacity: 75%;
+}
+
+li {
+  list-style-type: none;
+}
+
+#ArticleImg {
+  height: 100%;
+  width: 100%;
+  border-radius: 8px 8px 0px 0px;
+  order: 1;
+  grid-area: img;
+  margin: 0px;
+  padding: 0px;
+  object-fit: cover;
+  border: solid 1px black;
+  justify-self: center;
+  overflow: hidden;
+}
+
+#ArticleTitle {
+  grid-area: title;
+  margin: 5px;
+  padding: 0px;
+  font-size: 1em;
+}
+
+#ArticleAuthor {
+  grid-area: author;
+  margin: 0px;
+  padding: 0px;
+  align-self: center;
+  justify-self: center;
+  font-size: 1em;
+}
+
+#ArticleVotes {
+  grid-area: votecount;
+  margin: 0px;
+  padding: 0px;
+  align-self: center;
+  justify-self: center;
+}
+
+#topcomment {
+  grid-area: topcomment;
+  margin: 0px;
+  padding: 0px;
+  align-self: center;
+  justify-self: center;
+}
+
+#ArticleCommentCount {
+  grid-area: commentcount;
+  margin: 0px;
+  padding: 0px;
+  align-self: center;
+  justify-self: center;
+}
+
+#ArticleTopic {
+  grid-area: topic;
+  margin: 0px;
+  padding: 0px;
+  align-self: center;
+  justify-self: center;
+}
+
+#ArticleCreationInfo {
+  grid-area: creationinfo;
+  margin: 0px;
+  padding: 0px;
+  align-self: center;
+  justify-self: center;
+}
