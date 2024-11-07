@@ -1,12 +1,17 @@
 import "./App.css";
 import { Route, Routes } from "react-router-dom";
-import Homepage from "./Components/Homepage";
+import ArticlesList from "./Components/ArticlesList";
+import IndividualArticlePage from "./Components/IndividualArticlePage";
 
 function App() {
   return (
     <>
       <Routes>
-        <Route path="/" element={<Homepage />} />
+        <Route path="/" element={<ArticlesList />} />
+        <Route
+          path="/articles/:article_id"
+          element={<IndividualArticlePage />}
+        />
       </Routes>
     </>
   );
