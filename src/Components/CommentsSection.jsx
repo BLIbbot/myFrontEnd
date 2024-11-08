@@ -9,12 +9,11 @@ const CommentsSection = ({ article_id }) => {
     getComments(article_id).then((response) => {
       setComments(response);
     });
-  }, []);
-  console.log(comments);
+  }, [comments]);
+
   return (
     <ul>
       {comments.map((comment) => {
-        console.log(comment);
         return (
           <li key={comment.created_at} id="CommentCard">
             <h2>{comment.author}</h2>

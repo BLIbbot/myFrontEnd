@@ -29,3 +29,17 @@ export const addVote = (article_id, value) => {
       console.log(response);
     });
 };
+
+export const postComment = (article_id, commentbody, author) => {
+  return apiClient.post(`/articles/${article_id}/comments`, {
+    body: commentbody,
+    article_id: article_id,
+    author: author,
+  });
+};
+
+export const getUserByUsername = (username) => {
+  return apiClient.get(`/users/${username}`).then((response) => {
+    return response.data.user;
+  });
+};
