@@ -5,6 +5,8 @@ import IndividualArticlePage from "./Components/IndividualArticlePage";
 import { useEffect, useState } from "react";
 import { UserContext } from "./Components/UserContext";
 import { getUserByUsername } from "../api";
+import { NavBar } from "./Components/NavBar";
+import { AllTopicsPage } from "./Components/AllTopicsPage";
 
 function App() {
   const [input, setInput] = useState("");
@@ -31,27 +33,31 @@ function App() {
   return (
     <>
       <UserContext.Provider value={{ user, setUser }}>
-        <h1> Welcome to a smaller version of wikipedia</h1>
+        <NavBar />
         {!user ? (
-          <form onSubmit={trySignIn}>
+          <form className="signinFlex" onSubmit={trySignIn}>
             <label>
-              sign in
+              sign in:
               <input value={input} onChange={(e) => setInput(e.target.value)} />
-              <button type="submit"> Sign in</button>
+              <button type="submit">Sign in</button>
             </label>
           </form>
         ) : (
           <>
-            <p>{`Currently logged in as ${user}`}</p>
-            <button onClick={signOut}>sign out</button>
+            <div className="signinFlex">
+              <p>{`Currently logged in as ${user}`}</p>
+              <p> </p>
+              <button onClick={signOut}>sign out</button>
+            </div>
           </>
         )}
         <Routes>
-          <Route path="/" element={<ArticlesList />} />
+          <Route path="/articles" element={<ArticlesList />} />
           <Route
             path="/articles/:article_id"
             element={<IndividualArticlePage user={user} />}
           />
+          <Route path="/topics" element={<AllTopicsPage />} />
         </Routes>
       </UserContext.Provider>
     </>

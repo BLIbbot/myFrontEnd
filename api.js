@@ -4,8 +4,8 @@ const apiClient = axios.create({
   baseURL: "https://my-first-backend-p0gm.onrender.com/api",
 });
 
-export const getAllArticles = () => {
-  return apiClient.get("/articles").then((response) => {
+export const getAllArticles = (topic) => {
+  return apiClient.get("/articles", { params: { topic } }).then((response) => {
     return response.data.articles;
   });
 };
@@ -47,5 +47,11 @@ export const getUserByUsername = (username) => {
 export const deleteComment = (comment_id) => {
   return apiClient.delete(`/comments/${comment_id}`).then(() => {
     console.log("comment deleted");
+  });
+};
+
+export const getAllTopics = () => {
+  return apiClient.get(`/topics`).then((topics) => {
+    return topics.data.topics;
   });
 };
