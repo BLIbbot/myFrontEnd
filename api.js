@@ -11,9 +11,13 @@ export const getAllArticles = () => {
 };
 
 export const getArticleByID = (article_id) => {
-  console.log(article_id);
   return apiClient.get(`/articles/${article_id}`).then((response) => {
-    console.log(response.data);
     return response.data;
+  });
+};
+
+export const getComments = (article_id) => {
+  return apiClient.get(`/articles/${article_id}/comments`).then((response) => {
+    return response.data.comments;
   });
 };

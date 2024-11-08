@@ -124,9 +124,27 @@ li {
     "img img img img"
     "topic author creationinfo votecount"
     "commentsectiontitle addcommentbutton commentcount addvotebutton "
-    "comments comments comments comments";
+    "topcomment topcomment topcomment topcomment";
 }
 
 #CommentSectionTitle {
   grid-area: commentsectiontitle;
+}
+
+#TopComment {
+  grid-area: topcomment;
+}
+
+#AddVoteButton {
+  grid-area: addvotebutton;
+}
+
+#CommentCard {
+  border: solid 1px black;
+  padding: 5px;
+}
+
+.link {
+  text-decoration: none;
+  color: black;
 }
