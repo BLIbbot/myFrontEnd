@@ -43,3 +43,9 @@ export const getUserByUsername = (username) => {
     return response.data.user;
   });
 };
+
+export const deleteComment = (comment_id) => {
+  return apiClient.delete(`/comments/${comment_id}`).then(() => {
+    console.log("comment deleted");
+  });
+};
