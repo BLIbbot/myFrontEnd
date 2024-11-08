@@ -2,6 +2,47 @@ body {
   background-color: antiquewhite;
 }
 
+/*NAV BAR*/
+
+#NavFlex1 {
+  background-color: #c0bfbc;
+  display: flex;
+  align-items: space-evenly;
+}
+
+#NavFlex2 {
+  background-color: #9a9996;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+#Title {
+  text-decoration: none;
+  color: black;
+  flex-grow: 4;
+  text-align: center;
+  align-self: center;
+  padding-left: 20px;
+}
+.NavButton {
+  text-decoration: none;
+  width: 50%;
+  color: black;
+  text-align: center;
+  border: double 1px lightslategray;
+}
+
+.NavButton:hover {
+  background-color: lightslategray;
+}
+
+/* Homepage */
+.signinFlex {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 #ArticleList {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
@@ -107,6 +148,7 @@ li {
   justify-self: center;
 }
 
+/* Single Article Page */
 .IndividualArticle {
   border: solid 1px Black;
   border-radius: 12px;
@@ -150,4 +192,18 @@ li {
 .link {
   text-decoration: none;
   color: black;
+}
+
+/* Topics Page */
+.TopicLinks {
+  border: solid 1px black;
+  padding: 10px;
+  margin: 10px;
+  text-align: center;
+  text-transform: capitalize;
+}
+
+.TopicLinks:hover {
+  color: #9a9996;
+  opacity: 40%;
 }
