@@ -123,7 +123,7 @@ li {
     "title title title title"
     "img img img img"
     "topic author creationinfo votecount"
-    "commentsectiontitle addcommentbutton commentcount addvotebutton "
+    "addcommentbutton commentcount addvotebutton removevotebutton"
     "topcomment topcomment topcomment topcomment";
 }
 
@@ -137,6 +137,9 @@ li {
 
 #AddVoteButton {
   grid-area: addvotebutton;
+}
+#RemoveVoteButton {
+  grid-area: removevotebutton;
 }
 
 #CommentCard {

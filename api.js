@@ -21,3 +21,11 @@ export const getComments = (article_id) => {
     return response.data.comments;
   });
 };
+
+export const addVote = (article_id, value) => {
+  return apiClient
+    .patch(`/articles/${article_id}`, { inc_votes: value })
+    .then((response) => {
+      console.log(response);
+    });
+};
