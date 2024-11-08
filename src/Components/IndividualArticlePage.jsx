@@ -1,11 +1,11 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { addVote, getArticleByID } from "../../api";
+import { addVote, getArticleByID, postComment } from "../../api";
 import CommentsSection from "./CommentsSection";
+import { UserContext } from "./UserContext";
 
 const IndividualArticlePage = () => {
   const [article, setArticle] = useState({});
-  const [votes, setVotes] = useState(0);
 
   const { article_id } = useParams();
   useEffect(() => {
@@ -14,6 +14,8 @@ const IndividualArticlePage = () => {
       setVotes(article.article[0].votes);
     });
   }, []);
+
+  const [votes, setVotes] = useState(0);
 
   const vote = (value) => {
     setVotes((currentvotes) => {
@@ -26,6 +28,19 @@ const IndividualArticlePage = () => {
           return currentvotes - value;
         });
       });
+  };
+
+  const [commentToPost, setCommentToPost] = useState("");
+  const { user } = useContext(UserContext);
+
+  const comment = (event) => {
+    event.preventDefault();
+    if (!user) {
+      alert("please sign in to post a comment");
+    } else {
+      postComment(article_id, commentToPost, user);
+      setCommentToPost("");
+    }
   };
 
   return (
@@ -47,6 +62,16 @@ const IndividualArticlePage = () => {
           Created at: {new Date(article.created_at).toLocaleString()}
         </p>
       </section>
+      <form onSubmit={comment}>
+        <label>
+          Add Comment
+          <input
+            value={commentToPost}
+            onChange={(e) => setCommentToPost(e.target.value)}
+          ></input>
+          <button type="submit">Post Comment</button>
+        </label>
+      </form>
       <CommentsSection article_id={article_id} />
     </>
   );
