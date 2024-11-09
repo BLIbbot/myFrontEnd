@@ -4,10 +4,12 @@ const apiClient = axios.create({
   baseURL: "https://my-first-backend-p0gm.onrender.com/api",
 });
 
-export const getAllArticles = (topic) => {
-  return apiClient.get("/articles", { params: { topic } }).then((response) => {
-    return response.data.articles;
-  });
+export const getAllArticles = (topic, sort_by, order) => {
+  return apiClient
+    .get("/articles", { params: { topic, sort_by, order } })
+    .then((response) => {
+      return response.data.articles;
+    });
 };
 
 export const getArticleByID = (article_id) => {
