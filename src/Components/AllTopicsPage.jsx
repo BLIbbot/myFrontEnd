@@ -15,10 +15,12 @@ export const AllTopicsPage = () => {
     <ul>
       {topics.map((topic) => {
         return (
-          <Link className="link" to={`/articles?topic=${topic.slug}`}>
-            <li className="TopicLinks" key={topic.slug}>
-              {topic.slug} (copy to clipboard)
-            </li>
+          <Link
+            className="link"
+            to={`/articles?topic=${topic.slug}`}
+            key={topic.slug}
+          >
+            <li className="TopicLinks">{topic.slug} (copy to clipboard)</li>
           </Link>
         );
       })}
